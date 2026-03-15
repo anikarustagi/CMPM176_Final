@@ -34,22 +34,19 @@ func move(dir):
 		$AnimationPlayer.play(dir)
 		await tween.finished
 		moving = false
-	#elif #check crocaa
-		#var tween = get_tree().create_tween()
-		#tween.tween_property(self, "position", position + inputs[dir] * tile_size, 1.0/animation_speed).set_trans(Tween.TRANS_SINE)
-		#moving = true
-		#$AnimationPlayer.play(dir)
-		#await tween.finished
-		#moving = false
+	else:
+		print(ray.get_collider())
+	#elif #check croc
+		#move on top of croc tile
 		#set frogs to 0
 		#put player back on tile they came from
 	#elif #check frog
-		#var tween = get_tree().create_tween()
-		#tween.tween_property(self, "position", position + inputs[dir] * tile_size, 1.0/animation_speed).set_trans(Tween.TRANS_SINE)
-		#moving = true
-		#$AnimationPlayer.play(dir)
-		#await tween.finished
-		#moving = false
+		#move on top of frog tile
 		#set frog to +1
 		#frog tile goes away and a new one appears somewhere else that isn't a wall, crocodile
 		#and preferably not the tile the player is on
+
+
+func _on_area_entered(area: Area2D) -> void:
+	if area.is_in_group("enemy"):
+		print("hit")
