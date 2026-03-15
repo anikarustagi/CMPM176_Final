@@ -34,3 +34,22 @@ func move(dir):
 		$AnimationPlayer.play(dir)
 		await tween.finished
 		moving = false
+	#elif #check crocaa
+		#var tween = get_tree().create_tween()
+		#tween.tween_property(self, "position", position + inputs[dir] * tile_size, 1.0/animation_speed).set_trans(Tween.TRANS_SINE)
+		#moving = true
+		#$AnimationPlayer.play(dir)
+		#await tween.finished
+		#moving = false
+		#set frogs to 0
+		#put player back on tile they came from
+	#elif #check frog
+		#var tween = get_tree().create_tween()
+		#tween.tween_property(self, "position", position + inputs[dir] * tile_size, 1.0/animation_speed).set_trans(Tween.TRANS_SINE)
+		#moving = true
+		#$AnimationPlayer.play(dir)
+		#await tween.finished
+		#moving = false
+		#set frog to +1
+		#frog tile goes away and a new one appears somewhere else that isn't a wall, crocodile
+		#and preferably not the tile the player is on
