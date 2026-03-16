@@ -52,3 +52,10 @@ func show_end_screen():
 
 func restart_game():
 	get_tree().reload_current_scene()
+
+
+func set_frog_zero() -> void:
+	update_frog_count(0)
+
+func player_get_frog() -> void:
+	update_frog_count(frog_count + 1)
