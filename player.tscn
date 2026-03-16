@@ -98,5 +98,3 @@ root_node = NodePath("../RayCast2d")
 libraries = {
 &"": SubResource("AnimationLibrary_e3qh4")
 }
-
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]

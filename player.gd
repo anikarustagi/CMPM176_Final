@@ -12,6 +12,9 @@ var inputs = {
 
 @onready var ray = $RayCast2d
 
+signal frog_zero
+signal get_frog
+
 func _ready():
 	position = position.snapped(Vector2.ONE * tile_size)
 	position += Vector2.ONE * tile_size / 2
@@ -35,18 +38,43 @@ func move(dir):
 		await tween.finished
 		moving = false
 	else:
-		print(ray.get_collider())
-	#elif #check croc
-		#move on top of croc tile
-		#set frogs to 0
-		#put player back on tile they came from
-	#elif #check frog
-		#move on top of frog tile
-		#set frog to +1
-		#frog tile goes away and a new one appears somewhere else that isn't a wall, crocodile
-		#and preferably not the tile the player is on
-
-
-func _on_area_entered(area: Area2D) -> void:
-	if area.is_in_group("enemy"):
-		print("hit")
+		if ray.get_collider().is_in_group("enemy"):
+			#move on top of croc tile
+			var tween = get_tree().create_tween()
+			tween.tween_property(self, "position", position + inputs[dir] * tile_size, 1.0/animation_speed).set_trans(Tween.TRANS_SINE)
+			moving = true
+			$AnimationPlayer.play(dir)
+			await tween.finished
+			moving = false
+			
+			#set frogs to 0 and frogs on player's head fall off
+			frog_zero.emit()
+			
+			#put player back on tile they came from
+			tween = get_tree().create_tween()
+			tween.tween_property(self, "position", position - inputs[dir] * tile_size, 1.0/animation_speed).set_trans(Tween.TRANS_SINE)
+			moving = true
+			await tween.finished
+			moving = false
+			
+		elif ray.get_collider().is_in_group("frog"):
+			#move on top of frog tile
+			var tween = get_tree().create_tween()
+			tween.tween_property(self, "position", position + inputs[dir] * tile_size, 1.0/animation_speed).set_trans(Tween.TRANS_SINE)
+			moving = true
+			$AnimationPlayer.play(dir)
+			await tween.finished
+			moving = false
+			
+			#set frog to +1
+			get_frog.emit()
+			
+			#add frog to player's head
+			#[ add code here ]
+			
+			#frog tile goes away and a new one appears somewhere else that isn't a wall, crocodile,
+			#and preferably not the tile the player is on
+			#[ add code here ]
+			
+			#check if player has more than 10 frogs, if so, change movement to 2 tiles at a time
+			#[ add code here ]
