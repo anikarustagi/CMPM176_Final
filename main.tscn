@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b0wysm6c2nqgj" path="res://player.tscn" id="2_ia34y"]
 [ext_resource type="Texture2D" uid="uid://bf8bxnu0huryg" path="res://icon.svg" id="3_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://cibcntstf71xs" path="res://assets/sokoban_tilesheet.png" id="3_nuk7a"]
-[ext_resource type="PackedScene" uid="uid://wefpmw8lflhh" path="res://enemy.tscn" id="5_lquwl"]
+[ext_resource type="PackedScene" path="res://enemy.tscn" id="5_lquwl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r7s07"]
 texture = ExtResource("3_nuk7a")
@@ -128,4 +128,4 @@ position = Vector2(350, 251)
 position = Vector2(503, 400)
 
 [node name="enemy" parent="." instance=ExtResource("5_lquwl")]
-position = Vector2(288, 480)
+position = Vector2(287, 481)
