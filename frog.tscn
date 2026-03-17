@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://r15ivtfxj6oa"]
+
+[ext_resource type="Texture2D" uid="uid://nl3ieccv5el1" path="res://assets/PinClipart.com_murder-clip-art_5376441.webp" id="1_whe2r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4gyqm"]
+size = Vector2(58.75, 57.25)
+
+[node name="frog" type="Area2D" groups=["frog"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1.2516975e-06, 6.556511e-07)
+scale = Vector2(0.14534883, 0.14534883)
+texture = ExtResource("1_whe2r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4gyqm")
