@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://nnjkpa1rm758"]
+[gd_scene load_steps=11 format=3 uid="uid://nnjkpa1rm758"]
 
 [ext_resource type="Script" uid="uid://bps2npa2uduxr" path="res://Main.gd" id="1_1j54n"]
 [ext_resource type="Script" uid="uid://bum2ijc43mf0x" path="res://canvas_layer.gd" id="2_7mycd"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://bf8bxnu0huryg" path="res://icon.svg" id="3_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://nl3ieccv5el1" path="res://assets/PinClipart.com_murder-clip-art_5376441.webp" id="3_272bh"]
 [ext_resource type="Texture2D" uid="uid://cibcntstf71xs" path="res://assets/sokoban_tilesheet.png" id="3_nuk7a"]
-[ext_resource type="Script" uid="uid://v47tdy81qm6m" path="res://camera_2d.gd" id="5_5vw27"]
 [ext_resource type="PackedScene" uid="uid://wefpmw8lflhh" path="res://enemy.tscn" id="5_lquwl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r7s07"]
@@ -114,6 +113,7 @@ sources/0 = SubResource("TileSetAtlasSource_r7s07")
 sources/1 = SubResource("TileSetAtlasSource_lquwl")
 
 [node name="Main" type="Node2D"]
+position = Vector2(77, 0)
 script = ExtResource("1_1j54n")
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -129,8 +129,6 @@ position = Vector2(350, 251)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(503, 400)
-zoom = Vector2(2, 2)
-script = ExtResource("5_5vw27")
 
 [node name="enemy" parent="." instance=ExtResource("5_lquwl")]
 position = Vector2(288, 480)
@@ -155,6 +153,79 @@ offset_top = 53.0
 offset_right = 791.68
 offset_bottom = 71.96
 theme_override_font_sizes/font_size = 30
+
+[node name="StartScreen" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/StartScreen"]
+self_modulate = Color(1, 0.15294118, 1, 1)
+layout_mode = 0
+offset_left = -39.0
+offset_top = -40.0
+offset_right = 850.0
+offset_bottom = 785.0
+color = Color(0.94509804, 0.24705882, 0.85882354, 1)
+
+[node name="StartButton" type="Button" parent="CanvasLayer/StartScreen"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -47.0
+offset_top = 52.0
+offset_right = 138.0
+offset_bottom = 157.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 50
+text = "Start"
+
+[node name="TitleLabel" type="Label" parent="CanvasLayer/StartScreen"]
+layout_mode = 0
+offset_left = 176.0
+offset_top = 27.0
+offset_right = 664.0
+offset_bottom = 137.0
+theme_override_font_sizes/font_size = 80
+text = "Freaky Frogs"
+
+[node name="InstructionButton" type="Button" parent="CanvasLayer/StartScreen"]
+layout_mode = 0
+offset_left = 363.0
+offset_top = 113.0
+offset_right = 660.0
+offset_bottom = 220.0
+theme_override_font_sizes/font_size = 50
+text = "Instructions
+"
+
+[node name="InstructionScreen" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/InstructionScreen"]
+layout_mode = 0
+offset_left = -45.0
+offset_top = -45.0
+offset_right = 868.0
+offset_bottom = 783.0
+
+[node name="InstructionText" type="Label" parent="CanvasLayer/InstructionScreen"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="BackButton" type="Button" parent="CanvasLayer/InstructionScreen"]
+layout_mode = 0
+offset_left = -15.0
+offset_top = 165.0
+offset_right = 340.0
+offset_bottom = 250.0
+theme_override_font_sizes/font_size = 40
+text = "Back"
 
 [node name="EndScreen" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -185,7 +256,7 @@ offset_right = -419.0
 offset_bottom = 495.0
 texture = ExtResource("3_272bh")
 
-[node name="Title Label" type="Label" parent="CanvasLayer/EndScreen"]
+[node name="Game Over" type="Label" parent="CanvasLayer/EndScreen"]
 layout_mode = 0
 offset_left = -805.0
 offset_top = -5.0
@@ -194,7 +265,7 @@ offset_bottom = 119.0
 theme_override_font_sizes/font_size = 90
 text = "GAME OVER"
 
-[node name="Label" type="Label" parent="CanvasLayer/EndScreen"]
+[node name="Frog Count" type="Label" parent="CanvasLayer/EndScreen"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -16.116001
@@ -209,7 +280,7 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 50
 text = "Frog Count"
 
-[node name="Button" type="Button" parent="CanvasLayer/EndScreen"]
+[node name="PlayButton" type="Button" parent="CanvasLayer/EndScreen"]
 layout_mode = 0
 offset_left = -309.0
 offset_top = 206.0
@@ -217,12 +288,6 @@ offset_right = -28.0
 offset_bottom = 299.0
 theme_override_colors/font_color = Color(1, 0.8220175, 0.8532154, 1)
 theme_override_colors/icon_hover_color = Color(0.7199278, 0.90383923, 0.36934048, 1)
-
-[node name="Play Again" type="Label" parent="CanvasLayer/EndScreen"]
-layout_mode = 0
-offset_left = -296.0
-offset_top = 228.0
-offset_right = -46.0
-offset_bottom = 297.0
 theme_override_font_sizes/font_size = 50
-text = "Play Again"
+text = "Play Again
+"
