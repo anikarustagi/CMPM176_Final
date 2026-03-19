@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://nnjkpa1rm758"]
+[gd_scene load_steps=18 format=3 uid="uid://nnjkpa1rm758"]
 
 [ext_resource type="Script" uid="uid://bps2npa2uduxr" path="res://Main.gd" id="1_1j54n"]
 [ext_resource type="Script" uid="uid://bum2ijc43mf0x" path="res://canvas_layer.gd" id="2_7mycd"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://b0nisq77cmwvl" path="res://assets/Untitled (3).png" id="10_dg77c"]
 [ext_resource type="Texture2D" uid="uid://d3y2wqitn8i6w" path="res://assets/5bd170bb4655992be36d6034b35224fd.jpg" id="11_ycdy4"]
 [ext_resource type="FontFile" uid="uid://di4xw6a3ao3g" path="res://assets/Pixel Game.otf" id="12_w48qg"]
+[ext_resource type="AudioStream" uid="uid://byqdy1k6dum3l" path="res://assets/Kevin MacLeod - Itty Bitty 8 Bit  NO COPYRIGHT 8-bit Music.mp3" id="14_w48qg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r7s07"]
 texture = ExtResource("3_nuk7a")
@@ -333,3 +334,10 @@ theme_override_fonts/font = ExtResource("8_efxa6")
 theme_override_font_sizes/font_size = 50
 text = "Play Again
 "
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_w48qg")
+autoplay = true
+
+[node name="KevinMacLeodIttyBitty8BitNoCopyright8BitMusic" type="AudioStreamPlayer" parent="AudioStreamPlayer2D"]
+stream = ExtResource("14_w48qg")

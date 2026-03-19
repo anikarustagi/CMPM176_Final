@@ -16,7 +16,7 @@ extends CanvasLayer
 @onready var restart_button = $EndScreen/PlayButton
 
 
-@export var total_time = 1
+@export var total_time = 60
 var time_left = total_time
 var timer_running = false
 var frog_count = 0
