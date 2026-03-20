@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://nnjkpa1rm758"]
+[gd_scene load_steps=19 format=3 uid="uid://nnjkpa1rm758"]
 
 [ext_resource type="Script" uid="uid://bps2npa2uduxr" path="res://Main.gd" id="1_1j54n"]
 [ext_resource type="Script" uid="uid://bum2ijc43mf0x" path="res://canvas_layer.gd" id="2_7mycd"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://d3y2wqitn8i6w" path="res://assets/5bd170bb4655992be36d6034b35224fd.jpg" id="11_ycdy4"]
 [ext_resource type="FontFile" uid="uid://di4xw6a3ao3g" path="res://assets/Pixel Game.otf" id="12_w48qg"]
 [ext_resource type="AudioStream" uid="uid://byqdy1k6dum3l" path="res://assets/Kevin MacLeod - Itty Bitty 8 Bit  NO COPYRIGHT 8-bit Music.mp3" id="14_w48qg"]
+[ext_resource type="PackedScene" uid="uid://r15ivtfxj6oa" path="res://frog.tscn" id="15_vivmo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r7s07"]
 texture = ExtResource("3_nuk7a")
@@ -139,11 +140,13 @@ position = Vector2(350, 251)
 position = Vector2(503, 400)
 zoom = Vector2(0.9, 0.9)
 
+[node name="frog" parent="." instance=ExtResource("15_vivmo")]
+position = Vector2(467, 480)
+
 [node name="enemy" parent="." instance=ExtResource("5_lquwl")]
 position = Vector2(288, 480)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 script = ExtResource("2_7mycd")
 
 [node name="FrogCounterLabel" type="Label" parent="CanvasLayer"]
@@ -342,3 +345,6 @@ autoplay = true
 
 [node name="KevinMacLeodIttyBitty8BitNoCopyright8BitMusic" type="AudioStreamPlayer" parent="AudioStreamPlayer2D"]
 stream = ExtResource("14_w48qg")
+
+[connection signal="frog_zero" from="Player" to="CanvasLayer" method="set_frog_zero"]
+[connection signal="get_frog" from="Player" to="CanvasLayer" method="player_get_frog"]
