@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://nnjkpa1rm758"]
+[gd_scene load_steps=18 format=3 uid="uid://nnjkpa1rm758"]
 
 [ext_resource type="Script" uid="uid://bps2npa2uduxr" path="res://Main.gd" id="1_1j54n"]
 [ext_resource type="Script" uid="uid://bum2ijc43mf0x" path="res://canvas_layer.gd" id="2_7mycd"]
@@ -7,8 +7,13 @@
 [ext_resource type="Texture2D" uid="uid://nl3ieccv5el1" path="res://assets/PinClipart.com_murder-clip-art_5376441.webp" id="3_272bh"]
 [ext_resource type="Texture2D" uid="uid://cibcntstf71xs" path="res://assets/sokoban_tilesheet.png" id="3_nuk7a"]
 [ext_resource type="PackedScene" uid="uid://wefpmw8lflhh" path="res://enemy.tscn" id="5_lquwl"]
-[ext_resource type="PackedScene" uid="uid://r15ivtfxj6oa" path="res://frog.tscn" id="6_5vw27"]
-[ext_resource type="Script" uid="uid://c4ey7mmkfqwgi" path="res://frog.gd" id="7_kek77"]
+[ext_resource type="Texture2D" uid="uid://dfcjv27o3naed" path="res://assets/pixel-art-sea-coast-landscape-260nw-2188304515.jpg" id="7_efxa6"]
+[ext_resource type="FontFile" uid="uid://bo6suvtandu4k" path="res://assets/ARCADECLASSIC.TTF" id="8_efxa6"]
+[ext_resource type="Texture2D" uid="uid://bdfbxv78t0dvs" path="res://assets/Untitled (2).png" id="9_efxa6"]
+[ext_resource type="Texture2D" uid="uid://b0nisq77cmwvl" path="res://assets/Untitled (3).png" id="10_dg77c"]
+[ext_resource type="Texture2D" uid="uid://d3y2wqitn8i6w" path="res://assets/5bd170bb4655992be36d6034b35224fd.jpg" id="11_ycdy4"]
+[ext_resource type="FontFile" uid="uid://di4xw6a3ao3g" path="res://assets/Pixel Game.otf" id="12_w48qg"]
+[ext_resource type="AudioStream" uid="uid://byqdy1k6dum3l" path="res://assets/Kevin MacLeod - Itty Bitty 8 Bit  NO COPYRIGHT 8-bit Music.mp3" id="14_w48qg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r7s07"]
 texture = ExtResource("3_nuk7a")
@@ -125,39 +130,141 @@ layer_0/tile_data = PackedInt32Array(589825, 786432, 6, 589826, 786432, 6, 58982
 layer_1/name = "walls"
 layer_1/tile_data = PackedInt32Array(851967, 262144, 0, 786431, 262144, 0, 720895, 262144, 0, 655359, 262144, 0, 589823, 262144, 0, 524287, 262144, 0, 458751, 262144, 0, 393215, 262144, 0, 327679, 262144, 0, 262143, 262144, 0, 196607, 262144, 0, 131071, 262144, 0, 65535, 262144, 0, -1, 262144, 0, -65536, 262144, 0, -65535, 262144, 0, -65534, 262144, 0, -65533, 262144, 0, -65532, 262144, 0, -65531, 262144, 0, -65530, 262144, 0, -65529, 262144, 0, -65528, 262144, 0, -65527, 262144, 0, -65526, 262144, 0, -65525, 262144, 0, -65524, 262144, 0, -65523, 262144, 0, 917503, 262144, 0, 851968, 262144, 0, 851969, 262144, 0, 851970, 262144, 0, 851971, 262144, 0, 851972, 262144, 0, 851973, 262144, 0, 851974, 262144, 0, 851975, 262144, 0, 851976, 262144, 0, 851977, 262144, 0, 851978, 262144, 0, 851979, 262144, 0, 851980, 262144, 0, 851981, 262144, 0, 851982, 262144, 0, 786446, 262144, 0, 720910, 262144, 0, 655374, 262144, 0, 589838, 262144, 0, 524302, 262144, 0, 458766, 262144, 0, 393230, 262144, 0, 327694, 262144, 0, 262158, 262144, 0, 196622, 262144, 0, 131086, 262144, 0, 65550, 262144, 0, 14, 262144, 0, -65522, 262144, 0)
 
-[node name="Player" parent="." unique_id=565337739 instance=ExtResource("2_ia34y")]
-z_index = 1
+[node name="Player" parent="." instance=ExtResource("2_ia34y")]
 position = Vector2(350, 251)
 
-[node name="enemy" parent="." unique_id=2101901251 instance=ExtResource("5_lquwl")]
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(503, 400)
+zoom = Vector2(0.9, 0.9)
+
+[node name="enemy" parent="." instance=ExtResource("5_lquwl")]
 position = Vector2(288, 480)
 
-[node name="frog" parent="." unique_id=129007359 instance=ExtResource("6_5vw27")]
-position = Vector2(480, 480)
-script = ExtResource("7_kek77")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=985418062]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("2_7mycd")
 
-[node name="FrogCounterLabel" type="Label" parent="CanvasLayer" unique_id=1871960356]
-offset_left = 25.0
-offset_top = 18.0
-offset_right = 125.0
-offset_bottom = 55.0
-theme_override_font_sizes/font_size = 27
+[node name="FrogCounterLabel" type="Label" parent="CanvasLayer"]
+offset_left = 76.0
+offset_top = 64.0
+offset_right = 176.0
+offset_bottom = 101.0
+theme_override_fonts/font = ExtResource("8_efxa6")
+theme_override_font_sizes/font_size = 30
 text = "Frogs: 0"
+metadata/_edit_use_anchors_ = true
 
 [node name="TimerLabel" type="Label" parent="CanvasLayer" unique_id=561181348]
 anchors_preset = -1
-anchor_right = 0.035
-anchor_bottom = 0.036000002
-offset_left = 714.0
-offset_top = 26.0
-offset_right = 767.68
-offset_bottom = 44.96
+anchor_right = 0.00589289
+anchor_bottom = 0.110769235
+offset_left = 627.0
+offset_top = 63.0
+offset_right = 626.68
+offset_bottom = 81.96
+theme_override_fonts/font = ExtResource("8_efxa6")
 theme_override_font_sizes/font_size = 30
+metadata/_edit_use_anchors_ = true
 
-[node name="EndScreen" type="Control" parent="CanvasLayer" unique_id=1098579946]
+[node name="StartScreen" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PixelArtSeaCoastLandscape260Nw2188304515" type="Sprite2D" parent="CanvasLayer/StartScreen"]
+position = Vector2(613.5, 396.00003)
+scale = Vector2(2.6130953, 3.4131277)
+texture = ExtResource("7_efxa6")
+
+[node name="StartButton" type="Button" parent="CanvasLayer/StartScreen"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 40.0
+offset_top = 182.0
+offset_right = 225.0
+offset_bottom = 287.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("8_efxa6")
+theme_override_font_sizes/font_size = 50
+text = "Start"
+
+[node name="TitleLabel" type="Label" parent="CanvasLayer/StartScreen"]
+layout_mode = 0
+offset_left = 115.0
+offset_top = 14.0
+offset_right = 733.0
+offset_bottom = 124.0
+theme_override_fonts/font = ExtResource("8_efxa6")
+theme_override_font_sizes/font_size = 100
+text = "Freaky Frocs"
+
+[node name="InstructionButton" type="Button" parent="CanvasLayer/StartScreen"]
+layout_mode = 0
+offset_left = 468.0
+offset_top = 180.0
+offset_right = 806.0
+offset_bottom = 287.0
+theme_override_fonts/font = ExtResource("8_efxa6")
+theme_override_font_sizes/font_size = 50
+text = "Instructions
+"
+
+[node name="Untitled(2)" type="Sprite2D" parent="CanvasLayer/StartScreen"]
+position = Vector2(605.75006, 666)
+scale = Vector2(0.66249996, 0.75)
+texture = ExtResource("9_efxa6")
+
+[node name="Untitled(3)" type="Sprite2D" parent="CanvasLayer/StartScreen"]
+position = Vector2(162, 641)
+scale = Vector2(0.89375, 0.94375)
+texture = ExtResource("10_dg77c")
+
+[node name="InstructionScreen" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="5Bd170Bb4655992Be36d6034b35224Fd" type="Sprite2D" parent="CanvasLayer/InstructionScreen"]
+position = Vector2(550, 365.00003)
+scale = Vector2(1.7457445, 2.5552328)
+texture = ExtResource("11_ycdy4")
+
+[node name="InstructionText" type="Label" parent="CanvasLayer/InstructionScreen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 4.48
+anchor_bottom = 2.181
+offset_left = 20.0
+offset_top = 32.0
+offset_right = 1068.8
+offset_bottom = 656.76
+theme_override_colors/font_color = Color(0.080783345, 0.080783345, 0.080783345, 1)
+theme_override_fonts/font = ExtResource("12_w48qg")
+theme_override_font_sizes/font_size = 40
+text = "HOW TO PLAY
+
+• Use arrow keys or WASD to move your character
+• Step only on safe tiles
+• Avoid crocodile tiles
+• Collect frogs from the grid
+
+GOAL:
+Rescue as many frogs as possible before 
+time runs out!"
+
+[node name="BackButton" type="Button" parent="CanvasLayer/InstructionScreen"]
+layout_mode = 0
+offset_left = 427.0
+offset_top = 561.0
+offset_right = 782.0
+offset_bottom = 646.0
+theme_override_fonts/font = ExtResource("8_efxa6")
+theme_override_font_sizes/font_size = 40
+text = "Back"
+
+[node name="EndScreen" type="Control" parent="CanvasLayer"]
 visible = false
 layout_mode = 3
 anchors_preset = 0
@@ -173,61 +280,62 @@ anchor_left = -3.3360002
 anchor_top = 7.656
 anchor_right = -3.3360002
 anchor_bottom = 7.656
-offset_left = -726.56
-offset_top = -323.24
-offset_right = 903.44
-offset_bottom = 593.76
+offset_left = -749.56
+offset_top = -366.24
+offset_right = 207.44
+offset_bottom = 462.76
 color = Color(0.003921569, 0, 0.53333336, 0.9764706)
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/EndScreen" unique_id=788650410]
 layout_mode = 0
-offset_left = -811.0
-offset_top = 372.0
-offset_right = -411.0
-offset_bottom = 716.0
+offset_left = -819.0
+offset_top = 151.0
+offset_right = -419.0
+offset_bottom = 495.0
 texture = ExtResource("3_272bh")
 
-[node name="Title Label" type="Label" parent="CanvasLayer/EndScreen" unique_id=351843509]
+[node name="Game Over" type="Label" parent="CanvasLayer/EndScreen"]
 layout_mode = 0
-offset_left = -604.0
-offset_top = 200.0
-offset_right = -88.0
-offset_bottom = 324.0
+offset_left = -649.0
+offset_top = -14.0
+offset_right = -103.0
+offset_bottom = 78.0
+theme_override_fonts/font = ExtResource("8_efxa6")
 theme_override_font_sizes/font_size = 90
 text = "GAME OVER"
 
-[node name="Label" type="Label" parent="CanvasLayer/EndScreen" unique_id=989925841]
+[node name="Frog Count" type="Label" parent="CanvasLayer/EndScreen"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -16.116001
 anchor_top = 4.3440003
 anchor_right = -0.344
 anchor_bottom = 8.465
-offset_left = 616.64
-offset_top = -81.76001
-offset_right = 261.76
-offset_bottom = -154.6
+offset_left = 33.640015
+offset_top = 413.24
+offset_right = -321.24
+offset_bottom = 340.4
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("8_efxa6")
 theme_override_font_sizes/font_size = 50
 text = "Frog Count"
 
-[node name="Button" type="Button" parent="CanvasLayer/EndScreen" unique_id=560949204]
+[node name="PlayButton" type="Button" parent="CanvasLayer/EndScreen"]
 layout_mode = 0
-offset_left = -234.0
-offset_top = 528.0
-offset_right = 47.0
-offset_bottom = 621.0
+offset_left = -325.0
+offset_top = 269.0
+offset_right = -44.0
+offset_bottom = 362.0
 theme_override_colors/font_color = Color(1, 0.8220175, 0.8532154, 1)
 theme_override_colors/icon_hover_color = Color(0.7199278, 0.90383923, 0.36934048, 1)
-
-[node name="Play Again" type="Label" parent="CanvasLayer/EndScreen" unique_id=708060818]
-layout_mode = 0
-offset_left = -217.0
-offset_top = 546.0
-offset_right = 31.0
-offset_bottom = 615.0
+theme_override_fonts/font = ExtResource("8_efxa6")
 theme_override_font_sizes/font_size = 50
-text = "Play Again"
+text = "Play Again
+"
 
-[connection signal="frog_zero" from="Player" to="CanvasLayer" method="set_frog_zero"]
-[connection signal="get_frog" from="Player" to="CanvasLayer" method="player_get_frog"]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_w48qg")
+autoplay = true
+
+[node name="KevinMacLeodIttyBitty8BitNoCopyright8BitMusic" type="AudioStreamPlayer" parent="AudioStreamPlayer2D"]
+stream = ExtResource("14_w48qg")
