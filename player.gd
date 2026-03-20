@@ -15,6 +15,8 @@ var inputs = {
 signal frog_zero
 signal get_frog
 
+var speed = 1.0
+
 func _ready():
 	position = position.snapped(Vector2.ONE * tile_size)
 	position += Vector2.ONE * tile_size / 2
@@ -32,7 +34,7 @@ func move(dir):
 	if !ray.is_colliding():
 		#position += inputs[dir] * tile_size
 		var tween = get_tree().create_tween()
-		tween.tween_property(self, "position", position + inputs[dir] * tile_size, 1.0/animation_speed).set_trans(Tween.TRANS_SINE)
+		tween.tween_property(self, "position", position + inputs[dir] * tile_size, speed/animation_speed).set_trans(Tween.TRANS_SINE)
 		moving = true
 		$AnimationPlayer.play(dir)
 		await tween.finished
@@ -41,7 +43,7 @@ func move(dir):
 		if ray.get_collider().is_in_group("enemy"):
 			#move on top of croc tile
 			var tween = get_tree().create_tween()
-			tween.tween_property(self, "position", position + inputs[dir] * tile_size, 1.0/animation_speed).set_trans(Tween.TRANS_SINE)
+			tween.tween_property(self, "position", position + inputs[dir] * tile_size, speed/animation_speed).set_trans(Tween.TRANS_SINE)
 			moving = true
 			$AnimationPlayer.play(dir)
 			await tween.finished
@@ -49,10 +51,11 @@ func move(dir):
 			
 			#set frogs to 0 and frogs on player's head fall off
 			frog_zero.emit()
+			speed = 1.0
 			
 			#put player back on tile they came from
 			tween = get_tree().create_tween()
-			tween.tween_property(self, "position", position - inputs[dir] * tile_size, 1.0/animation_speed).set_trans(Tween.TRANS_SINE)
+			tween.tween_property(self, "position", position - inputs[dir] * tile_size, speed/animation_speed).set_trans(Tween.TRANS_SINE)
 			moving = true
 			await tween.finished
 			moving = false
@@ -62,7 +65,7 @@ func move(dir):
 			
 			#move on top of frog tile
 			var tween = get_tree().create_tween()
-			tween.tween_property(self, "position", position + inputs[dir] * tile_size, 1.0/animation_speed).set_trans(Tween.TRANS_SINE)
+			tween.tween_property(self, "position", position + inputs[dir] * tile_size, speed/animation_speed).set_trans(Tween.TRANS_SINE)
 			moving = true
 			$AnimationPlayer.play(dir)
 			await tween.finished
@@ -70,6 +73,7 @@ func move(dir):
 			
 			#set frog to +1
 			get_frog.emit()
+			speed = speed * 0.9
 			
 			#add frog to player's head
 			#[ add code here ]

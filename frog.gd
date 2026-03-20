@@ -12,6 +12,11 @@ func _ready():
 func move_to_random_tile(player_pos: Vector2) -> void:
 	var valid_spot = false
 	
+	var positions = []
+	var nodes_in_group = get_tree().get_nodes_in_group("enemy")
+	for node in nodes_in_group:
+		positions.append(node.global_position)
+	
 	while !valid_spot:
 		var random_x = randi_range(0, grid_width - 1)
 		var random_y = randi_range(0, grid_height - 1)
@@ -20,5 +25,6 @@ func move_to_random_tile(player_pos: Vector2) -> void:
 		new_position += Vector2.ONE * tile_size / 2
 		
 		if new_position != player_pos:
-			position = new_position
-			valid_spot = true
+			if not positions.has(new_position):
+				position = new_position
+				valid_spot = true
