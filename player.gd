@@ -58,6 +58,8 @@ func move(dir):
 			moving = false
 			
 		elif ray.get_collider().is_in_group("frog"):
+			var frog = ray.get_collider()
+			
 			#move on top of frog tile
 			var tween = get_tree().create_tween()
 			tween.tween_property(self, "position", position + inputs[dir] * tile_size, 1.0/animation_speed).set_trans(Tween.TRANS_SINE)
@@ -74,7 +76,7 @@ func move(dir):
 			
 			#frog tile goes away and a new one appears somewhere else that isn't a wall, crocodile,
 			#and preferably not the tile the player is on
-			#[ add code here ]
+			frog.move_to_random_tile(position)
 			
 			#check if player has more than 10 frogs, if so, change movement to 2 tiles at a time
 			#[ add code here ]

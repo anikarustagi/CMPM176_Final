@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://wefpmw8lflhh"]
 
-[ext_resource type="Texture2D" uid="uid://bf8bxnu0huryg" path="res://icon.svg" id="1_7k104"]
+[ext_resource type="Texture2D" uid="uid://bkyn800froj3u" path="res://assets/croc.jpg" id="1_7k104"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4gyqm"]
 size = Vector2(58, 58)
@@ -8,8 +8,8 @@ size = Vector2(58, 58)
 [node name="enemy" type="Area2D" groups=["enemy"]]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(2.3841858e-07, 2.3841858e-07)
-scale = Vector2(0.4873047, 0.4873047)
+position = Vector2(3.8146973e-06, 1.9073486e-06)
+scale = Vector2(0.08027451, 0.08027451)
 texture = ExtResource("1_7k104")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
