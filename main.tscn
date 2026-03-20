@@ -122,11 +122,9 @@ sources/0 = SubResource("TileSetAtlasSource_r7s07")
 sources/1 = SubResource("TileSetAtlasSource_lquwl")
 
 [node name="Main" type="Node2D"]
-position = Vector2(77, 0)
 script = ExtResource("1_1j54n")
 
 [node name="TileMap" type="TileMap" parent="."]
-position = Vector2(54, -14)
 tile_set = SubResource("TileSet_8q7wt")
 format = 2
 layer_0/name = "floor2"
