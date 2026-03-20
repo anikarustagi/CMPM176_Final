@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://nnjkpa1rm758"]
+[gd_scene load_steps=18 format=3 uid="uid://nnjkpa1rm758"]
 
 [ext_resource type="Script" uid="uid://bps2npa2uduxr" path="res://Main.gd" id="1_1j54n"]
 [ext_resource type="Script" uid="uid://bum2ijc43mf0x" path="res://canvas_layer.gd" id="2_7mycd"]
@@ -7,7 +7,13 @@
 [ext_resource type="Texture2D" uid="uid://nl3ieccv5el1" path="res://assets/PinClipart.com_murder-clip-art_5376441.webp" id="3_272bh"]
 [ext_resource type="Texture2D" uid="uid://cibcntstf71xs" path="res://assets/sokoban_tilesheet.png" id="3_nuk7a"]
 [ext_resource type="PackedScene" uid="uid://wefpmw8lflhh" path="res://enemy.tscn" id="5_lquwl"]
-[ext_resource type="PackedScene" uid="uid://r15ivtfxj6oa" path="res://frog.tscn" id="6_5vw27"]
+[ext_resource type="Texture2D" uid="uid://dfcjv27o3naed" path="res://assets/pixel-art-sea-coast-landscape-260nw-2188304515.jpg" id="7_efxa6"]
+[ext_resource type="FontFile" uid="uid://bo6suvtandu4k" path="res://assets/ARCADECLASSIC.TTF" id="8_efxa6"]
+[ext_resource type="Texture2D" uid="uid://bdfbxv78t0dvs" path="res://assets/Untitled (2).png" id="9_efxa6"]
+[ext_resource type="Texture2D" uid="uid://b0nisq77cmwvl" path="res://assets/Untitled (3).png" id="10_dg77c"]
+[ext_resource type="Texture2D" uid="uid://d3y2wqitn8i6w" path="res://assets/5bd170bb4655992be36d6034b35224fd.jpg" id="11_ycdy4"]
+[ext_resource type="FontFile" uid="uid://di4xw6a3ao3g" path="res://assets/Pixel Game.otf" id="12_w48qg"]
+[ext_resource type="AudioStream" uid="uid://byqdy1k6dum3l" path="res://assets/Kevin MacLeod - Itty Bitty 8 Bit  NO COPYRIGHT 8-bit Music.mp3" id="14_w48qg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r7s07"]
 texture = ExtResource("3_nuk7a")
@@ -114,51 +120,154 @@ sources/0 = SubResource("TileSetAtlasSource_r7s07")
 sources/1 = SubResource("TileSetAtlasSource_lquwl")
 
 [node name="Main" type="Node2D"]
+position = Vector2(77, 0)
 script = ExtResource("1_1j54n")
 
 [node name="TileMap" type="TileMap" parent="."]
+position = Vector2(54, -14)
 tile_set = SubResource("TileSet_8q7wt")
 format = 2
 layer_0/name = "floor2"
-layer_0/tile_data = PackedInt32Array(0, 786432, 6, 65536, 786432, 6, 131072, 786432, 6, 196608, 786432, 6, 262144, 786432, 6, 327680, 786432, 6, 393216, 786432, 6, 458752, 786432, 6, 524288, 786432, 6, 589824, 786432, 6, 1, 786432, 6, 589825, 786432, 6, 2, 786432, 6, 589826, 786432, 6, 3, 786432, 6, 589827, 786432, 6, 4, 786432, 6, 589828, 786432, 6, 5, 786432, 6, 393221, 786432, 6, 589829, 786432, 6, 6, 786432, 6, 393222, 786432, 6, 589830, 786432, 6, 7, 786432, 6, 65543, 786432, 6, 131079, 786432, 6, 196615, 786432, 6, 393223, 786432, 6, 458759, 786432, 6, 524295, 786432, 6, 589831, 786432, 6, 8, 786432, 6, 196616, 786432, 6, 393224, 786432, 6, 589832, 786432, 6, 9, 786432, 6, 196617, 786432, 6, 393225, 786432, 6, 589833, 786432, 6, 10, 786432, 6, 589834, 786432, 6, 11, 786432, 6, 589835, 786432, 6, 12, 786432, 6, 589836, 786432, 6, 13, 786432, 6, 262157, 786432, 6, 589837, 786432, 6, 65537, 786432, 6, 131073, 786432, 6, 196609, 786432, 6, 262145, 786432, 6, 327681, 786432, 6, 393217, 786432, 6, 458753, 786432, 6, 524289, 786432, 6, 65538, 786432, 6, 131074, 786432, 6, 196610, 786432, 6, 262146, 786432, 6, 327682, 786432, 6, 393218, 786432, 6, 458754, 786432, 6, 524290, 786432, 6, 65539, 786432, 6, 131075, 786432, 6, 196611, 786432, 6, 262147, 786432, 6, 327683, 786432, 6, 393219, 786432, 6, 458755, 786432, 6, 524291, 786432, 6, 65540, 786432, 6, 131076, 786432, 6, 196612, 786432, 6, 262148, 786432, 6, 327684, 786432, 6, 393220, 786432, 6, 458756, 786432, 6, 524292, 786432, 6, 65541, 786432, 6, 131077, 786432, 6, 196613, 786432, 6, 262149, 786432, 6, 327685, 786432, 6, 458757, 786432, 6, 524293, 786432, 6, 65542, 786432, 6, 131078, 786432, 6, 196614, 786432, 6, 262150, 786432, 6, 327686, 786432, 6, 458758, 786432, 6, 524294, 786432, 6, 262151, 786432, 6, 327687, 786432, 6, 65544, 786432, 6, 131080, 786432, 6, 262152, 786432, 6, 327688, 786432, 6, 458760, 786432, 6, 524296, 786432, 6, 65545, 786432, 6, 131081, 786432, 6, 262153, 786432, 6, 327689, 786432, 6, 458761, 786432, 6, 524297, 786432, 6, 65546, 786432, 6, 131082, 786432, 6, 196618, 786432, 6, 262154, 786432, 6, 327690, 786432, 6, 393226, 786432, 6, 458762, 786432, 6, 524298, 786432, 6, 65547, 786432, 6, 131083, 786432, 6, 196619, 786432, 6, 262155, 786432, 6, 327691, 786432, 6, 393227, 786432, 6, 458763, 786432, 6, 524299, 786432, 6, 65548, 786432, 6, 131084, 786432, 6, 196620, 786432, 6, 262156, 786432, 6, 327692, 786432, 6, 393228, 786432, 6, 458764, 786432, 6, 524300, 786432, 6, 65549, 786432, 6, 131085, 786432, 6, 196621, 786432, 6, 327693, 786432, 6, 393229, 786432, 6, 458765, 786432, 6, 524301, 786432, 6, 655360, 786432, 6, 655361, 786432, 6, 655362, 786432, 6, 655363, 786432, 6, 655364, 786432, 6, 655365, 786432, 6, 655366, 786432, 6, 655367, 786432, 6, 655368, 786432, 6, 655369, 786432, 6, 655373, 786432, 6, 655372, 786432, 6, 655371, 786432, 6, 655370, 786432, 6, 720907, 786432, 6, 720908, 786432, 6, 720909, 786432, 6, 720906, 786432, 6, 720905, 786432, 6, 720904, 786432, 6, 720903, 786432, 6, 720902, 786432, 6, 720901, 786432, 6, 720900, 786432, 6, 720899, 786432, 6, 720898, 786432, 6, 720897, 786432, 6, 720896, 786432, 6, 786432, 786432, 6, 786433, 786432, 6, 786434, 786432, 6, 786435, 786432, 6, 786436, 786432, 6, 786437, 786432, 6, 786438, 786432, 6, 786439, 786432, 6, 786440, 786432, 6, 786441, 786432, 6, 786442, 786432, 6, 786443, 786432, 6, 786444, 786432, 6, 786445, 786432, 6)
+layer_0/tile_data = PackedInt32Array(0, 786432, 6, 65536, 786432, 6, 131072, 786432, 6, 196608, 786432, 6, 262144, 786432, 6, 327680, 786432, 6, 393216, 786432, 6, 458752, 786432, 6, 524288, 786432, 6, 589824, 786432, 6, 1, 786432, 6, 589825, 786432, 6, 2, 786432, 6, 589826, 786432, 6, 3, 786432, 6, 589827, 786432, 6, 4, 786432, 6, 589828, 786432, 6, 5, 786432, 6, 393221, 786432, 6, 589829, 786432, 6, 6, 786432, 6, 393222, 786432, 6, 589830, 786432, 6, 7, 786432, 6, 65543, 786432, 6, 131079, 786432, 6, 196615, 786432, 6, 393223, 786432, 6, 458759, 786432, 6, 524295, 786432, 6, 589831, 786432, 6, 8, 786432, 6, 196616, 786432, 6, 393224, 786432, 6, 589832, 786432, 6, 9, 786432, 6, 196617, 786432, 6, 393225, 786432, 6, 589833, 786432, 6, 10, 786432, 6, 589834, 786432, 6, 11, 786432, 6, 589835, 786432, 6, 12, 786432, 6, 589836, 786432, 6, 13, 786432, 6, 262157, 786432, 6, 589837, 786432, 6, 65537, 786432, 6, 131073, 786432, 6, 196609, 786432, 6, 262145, 786432, 6, 327681, 786432, 6, 393217, 786432, 6, 458753, 786432, 6, 524289, 786432, 6, 65538, 786432, 6, 131074, 786432, 6, 196610, 786432, 6, 262146, 786432, 6, 327682, 786432, 6, 393218, 786432, 6, 458754, 786432, 6, 524290, 786432, 6, 65539, 786432, 6, 131075, 786432, 6, 196611, 786432, 6, 262147, 786432, 6, 327683, 786432, 6, 393219, 786432, 6, 458755, 786432, 6, 524291, 786432, 6, 65540, 786432, 6, 131076, 786432, 6, 196612, 786432, 6, 262148, 786432, 6, 327684, 786432, 6, 393220, 786432, 6, 458756, 786432, 6, 524292, 786432, 6, 65541, 786432, 6, 131077, 786432, 6, 196613, 786432, 6, 262149, 786432, 6, 327685, 786432, 6, 458757, 786432, 6, 524293, 786432, 6, 65542, 786432, 6, 131078, 786432, 6, 196614, 786432, 6, 262150, 786432, 6, 327686, 786432, 6, 458758, 786432, 6, 524294, 786432, 6, 262151, 786432, 6, 327687, 786432, 6, 65544, 786432, 6, 131080, 786432, 6, 262152, 786432, 6, 327688, 786432, 6, 458760, 786432, 6, 524296, 786432, 6, 65545, 786432, 6, 131081, 786432, 6, 262153, 786432, 6, 327689, 786432, 6, 458761, 786432, 6, 524297, 786432, 6, 65546, 786432, 6, 131082, 786432, 6, 196618, 786432, 6, 262154, 786432, 6, 327690, 786432, 6, 393226, 786432, 6, 458762, 786432, 6, 524298, 786432, 6, 65547, 786432, 6, 131083, 786432, 6, 196619, 786432, 6, 262155, 786432, 6, 327691, 786432, 6, 393227, 786432, 6, 458763, 786432, 6, 524299, 786432, 6, 65548, 786432, 6, 131084, 786432, 6, 196620, 786432, 6, 262156, 786432, 6, 327692, 786432, 6, 393228, 786432, 6, 458764, 786432, 6, 524300, 786432, 6, 65549, 786432, 6, 131085, 786432, 6, 196621, 786432, 6, 327693, 786432, 6, 393229, 786432, 6, 458765, 786432, 6, 524301, 786432, 6, 655360, 786432, 6, 655361, 786432, 6, 655362, 786432, 6, 655363, 786432, 6, 655364, 786432, 6, 655365, 786432, 6, 655366, 786432, 6, 655367, 786432, 6, 655368, 786432, 6, 655369, 786432, 6, 655373, 786432, 6, 655372, 786432, 6, 655371, 786432, 6, 655370, 786432, 6, 720907, 786432, 6, 720908, 786432, 6, 720909, 786432, 6, 720906, 786432, 6, 720905, 786432, 6, 720904, 786432, 6, 720903, 786432, 6, 720902, 786432, 6, 720901, 786432, 6, 720900, 786432, 6, 720899, 786432, 6, 720898, 786432, 6, 720897, 786432, 6, 720896, 786432, 6, 786432, 786432, 6, 786433, 786432, 6, 786434, 786432, 6, 786435, 786432, 6, 786436, 786432, 6, 786437, 786432, 6, 786438, 786432, 6, 786439, 786432, 6, 786440, 786432, 6, 786441, 786432, 6, 786442, 786432, 6, 786443, 786432, 6, 786444, 786432, 6, 786445, 786432, 6, -131050, 720896, 2)
 layer_1/name = "walls"
 layer_1/tile_data = PackedInt32Array(0, 262144, 0, 1, 262144, 0, 2, 262144, 0, 3, 262144, 0, 4, 262144, 0, 5, 262144, 0, 6, 262144, 0, 589824, 262144, 0, 65536, 262144, 0, 131072, 262144, 0, 196608, 262144, 0, 262144, 262144, 0, 327680, 262144, 0, 393216, 262144, 0, 458752, 262144, 0, 524288, 262144, 0, 7, 262144, 0, 8, 262144, 0, 9, 262144, 0, 10, 262144, 0, 11, 262144, 0, 12, 262144, 0, 13, 262144, 0, 65549, 262144, 0, 131085, 262144, 0, 196621, 262144, 0, 262157, 262144, 0, 327693, 262144, 0, 393229, 262144, 0, 458765, 262144, 0, 524301, 262144, 0, 589837, 262144, 0, 655373, 262144, 0, 720909, 262144, 0, 786445, 262144, 0, 786444, 262144, 0, 786443, 262144, 0, 786442, 262144, 0, 786441, 262144, 0, 786440, 262144, 0, 786439, 262144, 0, 786438, 262144, 0, 786437, 262144, 0, 786436, 262144, 0, 786435, 262144, 0, 786434, 262144, 0, 786433, 262144, 0, 786432, 262144, 0, 720896, 262144, 0, 655360, 262144, 0)
 
 [node name="Player" parent="." instance=ExtResource("2_ia34y")]
-z_index = 1
 position = Vector2(350, 251)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(503, 400)
+zoom = Vector2(0.9, 0.9)
 
 [node name="enemy" parent="." instance=ExtResource("5_lquwl")]
 position = Vector2(288, 480)
-
-[node name="frog" parent="." instance=ExtResource("6_5vw27")]
-position = Vector2(480, 480)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("2_7mycd")
 
 [node name="FrogCounterLabel" type="Label" parent="CanvasLayer"]
-offset_left = 25.0
-offset_top = 18.0
-offset_right = 125.0
-offset_bottom = 55.0
-theme_override_font_sizes/font_size = 27
+offset_left = 76.0
+offset_top = 64.0
+offset_right = 176.0
+offset_bottom = 101.0
+theme_override_fonts/font = ExtResource("8_efxa6")
+theme_override_font_sizes/font_size = 30
 text = "Frogs: 0"
+metadata/_edit_use_anchors_ = true
 
 [node name="TimerLabel" type="Label" parent="CanvasLayer"]
 anchors_preset = -1
-anchor_right = 0.035
-anchor_bottom = 0.036000002
-offset_left = 812.0
-offset_top = 21.0
-offset_right = 811.68
-offset_bottom = 20.96
+anchor_right = 0.00589289
+anchor_bottom = 0.110769235
+offset_left = 627.0
+offset_top = 63.0
+offset_right = 626.68
+offset_bottom = 81.96
+theme_override_fonts/font = ExtResource("8_efxa6")
 theme_override_font_sizes/font_size = 30
+metadata/_edit_use_anchors_ = true
+
+[node name="StartScreen" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PixelArtSeaCoastLandscape260Nw2188304515" type="Sprite2D" parent="CanvasLayer/StartScreen"]
+position = Vector2(613.5, 396.00003)
+scale = Vector2(2.6130953, 3.4131277)
+texture = ExtResource("7_efxa6")
+
+[node name="StartButton" type="Button" parent="CanvasLayer/StartScreen"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 40.0
+offset_top = 182.0
+offset_right = 225.0
+offset_bottom = 287.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("8_efxa6")
+theme_override_font_sizes/font_size = 50
+text = "Start"
+
+[node name="TitleLabel" type="Label" parent="CanvasLayer/StartScreen"]
+layout_mode = 0
+offset_left = 115.0
+offset_top = 14.0
+offset_right = 733.0
+offset_bottom = 124.0
+theme_override_fonts/font = ExtResource("8_efxa6")
+theme_override_font_sizes/font_size = 100
+text = "Freaky Frocs"
+
+[node name="InstructionButton" type="Button" parent="CanvasLayer/StartScreen"]
+layout_mode = 0
+offset_left = 468.0
+offset_top = 180.0
+offset_right = 806.0
+offset_bottom = 287.0
+theme_override_fonts/font = ExtResource("8_efxa6")
+theme_override_font_sizes/font_size = 50
+text = "Instructions
+"
+
+[node name="Untitled(2)" type="Sprite2D" parent="CanvasLayer/StartScreen"]
+position = Vector2(605.75006, 666)
+scale = Vector2(0.66249996, 0.75)
+texture = ExtResource("9_efxa6")
+
+[node name="Untitled(3)" type="Sprite2D" parent="CanvasLayer/StartScreen"]
+position = Vector2(162, 641)
+scale = Vector2(0.89375, 0.94375)
+texture = ExtResource("10_dg77c")
+
+[node name="InstructionScreen" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="5Bd170Bb4655992Be36d6034b35224Fd" type="Sprite2D" parent="CanvasLayer/InstructionScreen"]
+position = Vector2(550, 365.00003)
+scale = Vector2(1.7457445, 2.5552328)
+texture = ExtResource("11_ycdy4")
+
+[node name="InstructionText" type="Label" parent="CanvasLayer/InstructionScreen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 4.48
+anchor_bottom = 2.181
+offset_left = 20.0
+offset_top = 32.0
+offset_right = 1068.8
+offset_bottom = 656.76
+theme_override_colors/font_color = Color(0.080783345, 0.080783345, 0.080783345, 1)
+theme_override_fonts/font = ExtResource("12_w48qg")
+theme_override_font_sizes/font_size = 40
+text = "HOW TO PLAY
+
+• Use arrow keys or WASD to move your character
+• Step only on safe tiles
+• Avoid crocodile tiles
+• Collect frogs from the grid
+
+GOAL:
+Rescue as many frogs as possible before 
+time runs out!"
+
+[node name="BackButton" type="Button" parent="CanvasLayer/InstructionScreen"]
+layout_mode = 0
+offset_left = 427.0
+offset_top = 561.0
+offset_right = 782.0
+offset_bottom = 646.0
+theme_override_fonts/font = ExtResource("8_efxa6")
+theme_override_font_sizes/font_size = 40
+text = "Back"
 
 [node name="EndScreen" type="Control" parent="CanvasLayer"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 839.0
@@ -173,61 +282,62 @@ anchor_left = -3.3360002
 anchor_top = 7.656
 anchor_right = -3.3360002
 anchor_bottom = 7.656
-offset_left = -726.56
-offset_top = -323.24
-offset_right = 903.44
-offset_bottom = 593.76
+offset_left = -749.56
+offset_top = -366.24
+offset_right = 207.44
+offset_bottom = 462.76
 color = Color(0.003921569, 0, 0.53333336, 0.9764706)
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/EndScreen"]
 layout_mode = 0
-offset_left = -811.0
-offset_top = 372.0
-offset_right = -411.0
-offset_bottom = 716.0
+offset_left = -819.0
+offset_top = 151.0
+offset_right = -419.0
+offset_bottom = 495.0
 texture = ExtResource("3_272bh")
 
-[node name="Title Label" type="Label" parent="CanvasLayer/EndScreen"]
+[node name="Game Over" type="Label" parent="CanvasLayer/EndScreen"]
 layout_mode = 0
-offset_left = -604.0
-offset_top = 200.0
-offset_right = -88.0
-offset_bottom = 324.0
+offset_left = -649.0
+offset_top = -14.0
+offset_right = -103.0
+offset_bottom = 78.0
+theme_override_fonts/font = ExtResource("8_efxa6")
 theme_override_font_sizes/font_size = 90
 text = "GAME OVER"
 
-[node name="Label" type="Label" parent="CanvasLayer/EndScreen"]
+[node name="Frog Count" type="Label" parent="CanvasLayer/EndScreen"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -16.116001
 anchor_top = 4.3440003
 anchor_right = -0.344
 anchor_bottom = 8.465
-offset_left = 616.64
-offset_top = -81.76001
-offset_right = 261.76
-offset_bottom = -154.6
+offset_left = 33.640015
+offset_top = 413.24
+offset_right = -321.24
+offset_bottom = 340.4
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("8_efxa6")
 theme_override_font_sizes/font_size = 50
 text = "Frog Count"
 
-[node name="Button" type="Button" parent="CanvasLayer/EndScreen"]
+[node name="PlayButton" type="Button" parent="CanvasLayer/EndScreen"]
 layout_mode = 0
-offset_left = -234.0
-offset_top = 528.0
-offset_right = 47.0
-offset_bottom = 621.0
+offset_left = -325.0
+offset_top = 269.0
+offset_right = -44.0
+offset_bottom = 362.0
 theme_override_colors/font_color = Color(1, 0.8220175, 0.8532154, 1)
 theme_override_colors/icon_hover_color = Color(0.7199278, 0.90383923, 0.36934048, 1)
-
-[node name="Play Again" type="Label" parent="CanvasLayer/EndScreen"]
-layout_mode = 0
-offset_left = -217.0
-offset_top = 546.0
-offset_right = 31.0
-offset_bottom = 615.0
+theme_override_fonts/font = ExtResource("8_efxa6")
 theme_override_font_sizes/font_size = 50
-text = "Play Again"
+text = "Play Again
+"
 
-[connection signal="frog_zero" from="Player" to="CanvasLayer" method="set_frog_zero"]
-[connection signal="get_frog" from="Player" to="CanvasLayer" method="player_get_frog"]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_w48qg")
+autoplay = true
+
+[node name="KevinMacLeodIttyBitty8BitNoCopyright8BitMusic" type="AudioStreamPlayer" parent="AudioStreamPlayer2D"]
+stream = ExtResource("14_w48qg")
