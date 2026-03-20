@@ -1,9 +1,8 @@
 extends Area2D
 
-var animation_speed = 5
+var animation_speed = 2
 var moving = false
 var tile_size = 64
-
 var inputs = {
 	"right": Vector2.RIGHT,
 	"left": Vector2.LEFT,
@@ -11,7 +10,6 @@ var inputs = {
 	"down": Vector2.DOWN
 }
 
-@onready var camera = $Camera2D
 @onready var ray = $RayCast2d
 
 signal frog_zero
@@ -28,7 +26,6 @@ func _unhandled_input(event):
 		if event.is_action_pressed(dir):
 			move(dir)
 			
-	
 func move(dir):
 	ray.target_position = inputs[dir] * tile_size
 	ray.force_raycast_update()
@@ -61,8 +58,6 @@ func move(dir):
 			moving = false
 			
 		elif ray.get_collider().is_in_group("frog"):
-			var frog = ray.get_collider()
-			
 			#move on top of frog tile
 			var tween = get_tree().create_tween()
 			tween.tween_property(self, "position", position + inputs[dir] * tile_size, 1.0/animation_speed).set_trans(Tween.TRANS_SINE)
@@ -75,7 +70,7 @@ func move(dir):
 			get_frog.emit()
 			
 			#add frog to player's head
-			frog.move_to_random_tile(position)
+			#[ add code here ]
 			
 			#frog tile goes away and a new one appears somewhere else that isn't a wall, crocodile,
 			#and preferably not the tile the player is on
